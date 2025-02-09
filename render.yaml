@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flask-server
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn -b 0.0.0.0:5000 app:app"
+    disk:
+      name: downloads
+      mountPath: /app/downloads
+      sizeGB: 1
